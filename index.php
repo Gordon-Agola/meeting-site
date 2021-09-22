@@ -7,7 +7,7 @@ require_once "db/conn.php";
 $results = $crud->getSpecialties();
 ?>
     <h1 class="text-center">Registration For IT Conference</h1>
-    <form method="post" action="success.php">
+    <form method="post" action="success.php" enctype="multipart/form-data">
         <div class="form-group">
             <label for="firstname">First Name</label>
             <input required type="text" class="form-control" id="firstname" name="firstname" >
@@ -44,6 +44,13 @@ $results = $crud->getSpecialties();
             <label for="email">Email address</label>
             <input required type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <br>
+        <div class="custom-file">
+            
+            <input required type="file" accept="image/*" class="custom-file-input" id="avatar"  name="avatar">
+            <label class="custom-file-label" for="avatar">Choose file</label>
+            <small id="emailHelp" class="form-text text-danger">File upload is optional</small>
         </div>
         
         <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>

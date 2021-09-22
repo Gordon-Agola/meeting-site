@@ -16,6 +16,8 @@ else{
 }
 ?>
 <div class="card" style="width: 18rem;">
+
+<img src="<?php echo empty($result['avatar_path'])?"uploads/favor.jpg":$result['avatar_path']; ?>" class="rounded-circle" style="width: 20%; height: 20%;" alt="">
   <div class="card-body">
     <h5 class="card-title">
         <?php echo $result['firstname'].'  '.$result['lastname'] ?>

@@ -1,6 +1,6 @@
 
-    <div>
-        <?php echo 'Copyright ' . date('y'); ?>
+    <div id="footer" class="p-3 mb-2 bg-primary text-white fixed-bottom">
+        <p class="text-center">Copyrights &copy; - IT Conference Attendance System <?php echo date('y'); ?></p>
     </div>
     </div>
     <!-- Optional JavaScript -->

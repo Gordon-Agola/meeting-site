@@ -7,9 +7,10 @@ class crud{
         $this->db = $conn;
     }
     // function to insert new records in the database
-    public function insertAttendees($fname,$lname,$dob,$email,$contact,$specialty){
+    public function insertAttendees($fname,$lname,$dob,$email,$contact,$specialty,$avatar){
         try {
-            $sql = "INSERT INTO attendee(firstname,lastname,dateofbirth,emailaddress,contact,specialty_id) VALUES(:fname,:lname,:dob,:email,:contact,:specialty)";
+            $sql = "INSERT INTO attendee(firstname,lastname,dateofbirth,emailaddress,contact,specialty_id,avatar_path)
+             VALUES(:fname,:lname,:dob,:email,:contact,:specialty,:avatar)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam(':fname',$fname);
             $stmt->bindparam(':lname',$lname);
@@ -17,6 +18,7 @@ class crud{
             $stmt->bindparam(':email',$email);
             $stmt->bindparam(':contact',$contact);
             $stmt->bindparam(':specialty',$specialty);
+            $stmt->bindparam(':avatar',$avatar);
 
 
 

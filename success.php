@@ -11,7 +11,15 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $contact = $_POST['phone'];
     $specialty = $_POST['specialty'];
-    $isSuccess = $crud->insertAttendees($fname,$lname,$dob,$email,$contact,$specialty);
+
+    $original_file = $_FILES["avatar"]['tmp_name'];
+    $ext = pathinfo($_FILES['avatar']['name'],PATHINFO_EXTENSION);
+    $target_dir = 'uploads/';
+    $destination = $target_dir.$contact.".".$ext;
+    move_uploaded_file($original_file,$destination);
+    
+
+    $isSuccess = $crud->insertAttendees($fname,$lname,$dob,$email,$contact,$specialty,$destination);
 
     if($isSuccess){
         include 'includes/successmessage.php';
@@ -23,9 +31,10 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<h1 class="text-center text-success"> You Have Been Registered Successfully!!!</h1>
+
 <div class="card" style="width: 18rem;">
   <div class="card-body">
+  <img src="<?php echo $destination ?>" class="rounded-circle" style="width: 16%; height: 20%;" alt="">
     <h5 class="card-title">
         <?php echo $_POST['firstname'].'  '.$_POST['lastname'] ?>
     </h5>
@@ -50,8 +59,7 @@ if(isset($_POST['submit'])){
         echo $_POST['phone']
         ?>
     </p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+   
   </div>
 </div>
 <?php

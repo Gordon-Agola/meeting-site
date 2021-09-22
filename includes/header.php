@@ -18,7 +18,7 @@ require_once "includes/session.php";
   </head>
   <body>
       <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
           <a class="navbar-brand" href="index.php">IT Conference</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,3 +52,5 @@ require_once "includes/session.php";
           </div>
         </nav>
         <br/>
+        <br>
+        <br>
