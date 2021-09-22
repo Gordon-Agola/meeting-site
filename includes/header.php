@@ -1,3 +1,8 @@
+<?php
+//This includes the session file. This file contain a code that start and resume a session
+//by having it in the header file. It will be included in every page
+require_once "includes/session.php";
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,13 +24,29 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="viewrecords.php">View Attendee</a>
               </li>
+             
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <?php if(!isset($_SESSION['username'])){?>
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login <span class="sr-only">(current)</span></a>
+              </li>
+              <?php }else {?>
+                
+                <li class="nav-item">
+                <a class="nav-link" href="#"><span>Hello <?php echo $_SESSION['username']?>!</span><span class="sr-only">(current)</span></a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>
+              </li>
+              <?php }?>
              
             </ul>
           </div>
